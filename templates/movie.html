@@ -1,0 +1,60 @@
+   {% extends 'base.html' %}
+
+   {% block content %}
+   
+   
+   <div class="container pt-3">
+        <h2>Top IMDB rating movie</h2>
+
+        <nav aria-label="..." class="mt-5">
+          <ul class="pagination">
+    
+            {% if get_page.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page=1">First</a>
+            </li>
+            <li class="page-item ">
+              <a class="page-link"  href="?page={{ get_page.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+    
+            {% for n in totalpagelist %}
+            <li class="page-item"><a class="page-link" href="?page={{n}}">{{n}}</a></li>
+            {% endfor %}
+    
+            {% if get_page.has_next %}
+            
+            <li class="page-item">
+              <a class="page-link" href="?page={{get_page.next_page_number}}">Next</a>
+            </li>
+    
+            <li class="page-item">
+              <a class="page-link" href="?page={{lastpage}}">Last</a>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+
+        <div class="row mt-4">
+            {% for i in get_page %}
+            <div class="col-md-4 mb-4">
+                <div class="card carda" style="height: 20rem;">
+                    <div class="card-body">
+                      <p class="card-text"><b>Movie</b>: {{i.title}}</p>  
+                      <p class="card-title"><b>IMDB Rating</b>: {{i.vote_average}}</p>
+                      <p class="card-title"><b>Vote_Count</b>: {{i.vote_count}}</p>
+                      <p class="card-text"><b>Release Date</b>: {{i.release_date}}</p>
+                      <p class="card-text"><b>Public Review</b>: {{i.popularity}}%</p>
+                      <p class="card-text"><b>Descripsion</b>: {{i.overview | truncatewords:20}}</p>
+                      
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+    </div>
+
+    
+
+</div>
+
+{% endblock content %}

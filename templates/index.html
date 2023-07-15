@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <div class="container pt-3">
+        <h2>Top 20 IMDB rating movie</h2>
+        <div class="row mt-4">
+            {% for i in movies %}
+            <div class="col-md-4 mb-4">
+                <div class="card carda" style="height: 20rem;">
+                    <div class="card-body">
+                      <p class="card-text"><b>Movie</b>: {{i.title}}</p>  
+                      <p class="card-title"><b>IMDB Rating</b>: {{i.vote_average}}</p>
+                      <p class="card-title"><b>Vote_Count</b>: {{i.vote_count}}</p>
+                      <p class="card-text"><b>Release Date</b>: {{i.release_date}}</p>
+                      <p class="card-text"><b>Public Review</b>: {{i.popularity}}%</p>
+                      <p class="card-text"><b>Descripsion</b>: {{i.overview | truncatewords:20}}</p>
+                      
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}

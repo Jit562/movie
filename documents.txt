@@ -1,0 +1,26 @@
+Project name is movies
+
+Application name is mvapp
+
+Movies list api end point:-
+
+method = get
+http://127.0.0.1:8000/mvlist/
+
+
+Top IMDB rating movie api end point:-
+
+method= get
+http://127.0.0.1:8000/movie/list/
+
+
+Search by movie name api end point:-
+
+method = get
+http://127.0.0.1:8000/search/?q=angry
+
+
+Pagination add find 6 movies per page:
+http://127.0.0.1:8000/movie/list/
+
+
